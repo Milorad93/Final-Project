@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../components/login.css";
+import Loading from "./Loading";
 
 const Login = ({ setUser }) => {
   const [email, setEmail] = useState("");
@@ -35,7 +36,9 @@ const Login = ({ setUser }) => {
     }
   };
 
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <div className="container-login">
       <form className="login" onSubmit={handleSubmit}>
         <label>Email </label>

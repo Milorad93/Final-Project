@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../components/signup.css";
+import Loading from "./Loading";
 const Signup = ({ setUser }) => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
@@ -43,7 +44,9 @@ const Signup = ({ setUser }) => {
     }
   };
 
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <div className="container-signup">
       <form className="signup" onSubmit={handleSubmit}>
         <label>First name </label>
